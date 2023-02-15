@@ -1,4 +1,10 @@
-import { Controller } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
+import { get } from 'http';
 
 @Controller('users')
-export class UsersController {}
+export class UsersController {
+  @Get()
+  getRandomUser() {
+    return 'user';
+  }
+}
