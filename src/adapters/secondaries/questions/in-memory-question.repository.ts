@@ -1,7 +1,10 @@
 import { QuestionRepository } from 'src/domain/repositories';
 import { Question } from '../../../domain/models/question.model';
+import { QuestionMapper } from './question.mapper';
 
 export class InMemoryQuestionsRepository implements QuestionRepository {
+  private questionMapper = new QuestionMapper();
+
   private questions: Question[] = [
     {
       name: 'questionTestName',
@@ -44,6 +47,11 @@ export class InMemoryQuestionsRepository implements QuestionRepository {
       name: 'ghvj',
     },
   ];
+
+  findRandomQuestion = async (): Promise<Question> => {
+    const questionRandom = this.questions[Math.floor(Math.random() * 5)];
+    return this.questionMapper.mapToDomainModel(questionRandom);
+  };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   findById = async (id: string): Promise<Question> => this.questions[0];

@@ -3,6 +3,6 @@ export interface Question {
   id: string;
   filters?: string[];
   wording: string;
-  answer: string;
-  complexity: number;
+  answer?: string;
+  complexity?: number;
 }
