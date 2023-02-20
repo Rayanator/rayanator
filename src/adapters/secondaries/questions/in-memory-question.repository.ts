@@ -54,7 +54,7 @@ export class InMemoryQuestionsRepository implements QuestionRepository {
   };
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  findById = async (id: string): Promise<Question> => this.questions[0];
+  findById = async (id: string): Promise<Question> => this.questions[id];
 
   retrieveAll = async (): Promise<Question[]> => this.questions;
 }
